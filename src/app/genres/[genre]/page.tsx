@@ -47,13 +47,18 @@ async function GenrePage({ params: { genre } }: { params: { genre: string } }) {
               width="100%"
               height="35vh"
               imageSrc={image}
+              key={_id}
               mobileImage={mobileImage}
             >
               <StyledChild style={{ padding: "20px" }}>
                 <h2>{title}</h2>
                 <div>
                   {genres.map((genre) => {
-                    return <span style={{ fontSize: "15px" }}>{genre}</span>;
+                    return (
+                      <span key={genre} style={{ fontSize: "15px" }}>
+                        {genre}
+                      </span>
+                    );
                   })}
                 </div>
                 <Link href={`/movies/${_id}`}>
@@ -71,6 +76,7 @@ async function GenrePage({ params: { genre } }: { params: { genre: string } }) {
             <ImageBanner
               width="100%"
               height="100vh"
+              key={_id}
               imageSrc={image}
               mobileImage={mobileImage}
             >
@@ -78,7 +84,11 @@ async function GenrePage({ params: { genre } }: { params: { genre: string } }) {
                 <h2>{title}</h2>
                 <div>
                   {genres.map((genre) => {
-                    return <span style={{ fontSize: "15px" }}>{genre}</span>;
+                    return (
+                      <span key={genre} style={{ fontSize: "15px" }}>
+                        {genre}
+                      </span>
+                    );
                   })}
                 </div>
                 <Link href={`/movies/${_id}`}>

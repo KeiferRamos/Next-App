@@ -74,7 +74,7 @@ async function MoviePage({ params: { title } }: Props) {
       <Carousel slidesToShow={3}>
         {similar.map(({ image, title, _id }) => {
           return (
-            <ImageBanner imageSrc={image} width="100%" height="300px">
+            <ImageBanner imageSrc={image} key={_id} width="100%" height="300px">
               <StyledChild style={{ padding: "30px" }}>
                 <h2>{title}</h2>
                 <Link href={`/movies/${_id}`}>
@@ -91,9 +91,9 @@ async function MoviePage({ params: { title } }: Props) {
       <StyledCastContainer>
         <div className="cast-carousel">
           <Carousel slidesToShow={2}>
-            {cast.map(({ name, asCharacter, image }) => {
+            {cast.map(({ name, asCharacter, image, _id }) => {
               return (
-                <div className="cast-info">
+                <div className="cast-info" key={_id}>
                   <Image src={image} alt="" fill />
                   <div>
                     <h3>{name}</h3>
@@ -107,9 +107,9 @@ async function MoviePage({ params: { title } }: Props) {
           </Carousel>
         </div>
         <div className="cast-list">
-          {cast.map(({ name, asCharacter, image }) => {
+          {cast.map(({ name, asCharacter, image, _id }) => {
             return (
-              <div className="cast-info">
+              <div className="cast-info" key={_id}>
                 <Image src={image} alt="" fill />
                 <div>
                   <h3>{name}</h3>

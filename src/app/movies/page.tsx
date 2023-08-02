@@ -18,12 +18,13 @@ async function MoviesPage() {
             mobileImage={mobileImage}
             height="300px"
             width="auto"
+            key={_id}
           >
             <StyledChild style={{ padding: "10px" }}>
               <h3>{title}</h3>
               <div>
                 {genres.map((genre) => {
-                  return <span>{genre}</span>;
+                  return <span key={genre}>{genre}</span>;
                 })}
               </div>
               <Link href={`/movies/${_id}`}>

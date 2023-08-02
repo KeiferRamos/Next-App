@@ -11,13 +11,14 @@ async function GenreListPage() {
 
   return (
     <StyledGenreList>
-      {data.map(({ mobileImage, image, name, description }) => {
+      {data.map(({ mobileImage, image, name, description, _id }) => {
         return (
           <ImageBanner
             height="400px"
             width="auto"
             mobileImage={mobileImage}
             imageSrc={image}
+            key={_id}
           >
             <StyledChild style={{ padding: "25px" }}>
               <h2>{name}</h2>
