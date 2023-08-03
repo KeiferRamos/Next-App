@@ -20,10 +20,6 @@ export const StyledContainer = styled.div`
     }
   }
 
-  .mobile-carousel {
-    display: none;
-  }
-
   .image-container {
     height: calc(65vh - 50px);
     width: 100%;
@@ -82,32 +78,7 @@ export const StyledContainer = styled.div`
     }
 
     @media (max-width: 700px) {
-      height: 60vh;
+      height: 65vh;
     }
-  }
-
-  @media (max-width: 500px) {
-    .mobile-carousel {
-      display: block;
-    }
-  }
-`;
-
-export const MovieContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, auto));
-  padding: 0 1.5em;
-  padding-bottom: 1em;
-  background: rgba(0, 0, 0, 0.9);
-  gap: 5px;
-
-  h2 {
-    font-size: 20px;
-  }
-
-  @media (max-width: 500px) {
-    padding: 0;
-    gap: 0;
-    display: none;
   }
 `;

@@ -27,7 +27,17 @@ async function MoviesPage() {
                   return <span key={genre}>{genre}</span>;
                 })}
               </div>
-              <Link href={`/movies/${_id}`}>
+              <Link
+                href={{
+                  pathname: `/movies/${title
+                    .split(" ")
+                    .join("-")
+                    .toLowerCase()}`,
+                  query: {
+                    id: _id,
+                  },
+                }}
+              >
                 <FiInfo />
                 view more
               </Link>
@@ -42,8 +52,8 @@ async function MoviesPage() {
 export async function generateStaticParams() {
   const data = await getAllMovies();
 
-  return data.map(({ _id }) => ({
-    id: _id,
+  return data.map(({ title }) => ({
+    title: title.split(" ").join("-").toLowerCase(),
   }));
 }
 

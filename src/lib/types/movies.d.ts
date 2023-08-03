@@ -22,6 +22,7 @@ export type MovieType = {
     image: string;
     title: string;
     _id: string;
+    movieId: string;
   }[];
   likes: string[];
   reviews: {

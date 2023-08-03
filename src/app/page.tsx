@@ -26,7 +26,17 @@ export default async function Home() {
                     return <span key={i}>{genre}</span>;
                   })}
                 </div>
-                <Link href={`/movies/${_id}`}>
+                <Link
+                  href={{
+                    pathname: `/movies/${title
+                      .split(" ")
+                      .join("-")
+                      .toLowerCase()}`,
+                    query: {
+                      id: _id,
+                    },
+                  }}
+                >
                   <FiInfo />
                   view more
                 </Link>

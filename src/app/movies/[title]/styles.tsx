@@ -88,6 +88,29 @@ export const StyledCastContainer = styled.div`
 
   .cast-carousel {
     display: none;
+    position: relative;
+
+    .cast-info-circle {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding-bottom: 30px;
+      gap: 10px;
+
+      h3 {
+        font-size: 20px;
+      }
+
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
+
+      img {
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
   }
 
   .cast-info {
