@@ -26,10 +26,13 @@ export type MovieType = {
   }[];
   likes: string[];
   reviews: {
+    createdAt: string;
+    updatedAt: string;
     username: string;
     userImage: string;
     review: string;
     stars: string;
     title: string;
+    _id: string;
   }[];
 };

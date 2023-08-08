@@ -7,7 +7,7 @@ import ImageBanner from "@/components/banner/imageBanner";
 import { StyledChild } from "../styles";
 
 async function MoviesPage() {
-  const data = await getAllMovies();
+  const data = await getAllMovies({});
 
   return (
     <StyledList>
@@ -50,7 +50,7 @@ async function MoviesPage() {
 }
 
 export async function generateStaticParams() {
-  const data = await getAllMovies();
+  const data = await getAllMovies({});
 
   return data.map(({ title }) => ({
     title: title.split(" ").join("-").toLowerCase(),

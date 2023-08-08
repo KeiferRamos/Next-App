@@ -154,3 +154,8 @@ export const StyledHeader = styled.h2`
   text-align: center;
   color: #bebebe;
 `;
+
+export const StyledDivider = styled.div`
+  display: flex;
+  gap: 20px;
+`;

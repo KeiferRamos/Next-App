@@ -23,7 +23,14 @@ async function GenreListPage() {
             <StyledChild style={{ padding: "25px" }}>
               <h2>{name}</h2>
               <p>{description}</p>
-              <Link href={`/genres/${name}`}>
+              <Link
+                href={{
+                  pathname: `/genres/${name}`,
+                  query: {
+                    id: _id,
+                  },
+                }}
+              >
                 <FiArchive />
                 browse more
               </Link>

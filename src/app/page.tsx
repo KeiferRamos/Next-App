@@ -1,12 +1,13 @@
 import ImageBanner from "@/components/banner/imageBanner";
-import getFeautedMovies from "@/lib/api/getFeautedMovies";
 import { Carousel } from "antd";
 import { StyledChild } from "./styles";
 import { FiInfo } from "react-icons/fi";
 import Link from "next/link";
+import getAllMovies from "@/lib/api/getAllMovies";
 
 export default async function Home() {
-  const data = await getFeautedMovies();
+  const data = await getAllMovies({ featured: 1 });
+
   return (
     <main>
       <Carousel>

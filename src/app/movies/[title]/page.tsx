@@ -3,7 +3,12 @@ import React, { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Carousel from "@/components/carousel/carousel";
-import { StyledBanner, StyledCastContainer, StyledHeader } from "./styles";
+import {
+  StyledBanner,
+  StyledCastContainer,
+  StyledDivider,
+  StyledHeader,
+} from "./styles";
 import { AiOutlineVideoCamera } from "react-icons/ai";
 import { FiAlertCircle } from "react-icons/fi";
 import { Metadata } from "next";
@@ -11,6 +16,22 @@ import ImageBanner from "@/components/banner/imageBanner";
 import { StyledChild } from "@/app/styles";
 
 import Player from "@/components/Player/player";
+import axios from "axios";
+
+const addReview = async () => {
+  "use server";
+
+  await axios.put(
+    `${process.env.BASE_URL}/movies/reviews/create/64aaadd21930f198d8594916`,
+    {
+      username: "keifer Ramos",
+      title: "Good Movie",
+      review:
+        "Venmo fam art party raclette hashtag tonx adaptogen trust fund typewriter authentic tilde viral blog vinyl.",
+      stars: 3,
+    }
+  );
+};
 
 type ParamsType = {
   params: { title: string };
@@ -42,6 +63,7 @@ async function MoviePage({ searchParams: { id } }: ParamsType) {
     trailer,
     mobileImage,
     similar,
+    reviews,
   } = await getMovieById(id);
 
   return (
@@ -128,7 +150,26 @@ async function MoviePage({ searchParams: { id } }: ParamsType) {
           })}
         </div>
       </StyledCastContainer>
-      <Player url={trailer}></Player>
+      <StyledDivider>
+        <Player url={trailer}></Player>
+        <div>
+          {reviews.map(
+            ({ _id, title, username, review, createdAt, updatedAt }) => {
+              return (
+                <div key={_id}>
+                  <h2>{username}</h2>
+                  <h3>{title}</h3>
+                  <p>{review}</p>
+                  <span>{new Date(createdAt).toTimeString()}</span>
+                </div>
+              );
+            }
+          )}
+          <form action={addReview}>
+            <button type="submit">submit</button>
+          </form>
+        </div>
+      </StyledDivider>
     </div>
   );
 }

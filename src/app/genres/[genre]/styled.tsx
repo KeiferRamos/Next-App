@@ -33,38 +33,32 @@ export const StyledContainer = styled.div`
       height: 100%;
       background: rgba(0, 0, 0, 0.75);
       display: flex;
-      align-items: end;
+      flex-direction: column;
+      justify-content: end;
       padding: 20px;
       color: #bebebe;
 
-      span {
-        max-width: 40%;
+      p {
+        font-family: "Montserrat", sans-serif;
+        line-height: 25px;
 
         @media (max-width: 700px) {
-          max-width: 100%;
+          font-size: 13px;
         }
+      }
 
-        p {
-          font-family: "Montserrat", sans-serif;
-          line-height: 25px;
+      h1 {
+        color: #fff;
+        text-transform: capitalize;
+      }
 
-          @media (max-width: 700px) {
-            font-size: 13px;
-          }
-        }
-
-        h1 {
-          color: #fff;
-          text-transform: capitalize;
-        }
-
-        button {
-          padding: 10px 15px;
-          margin-top: 8px;
-          background: #eb5f08;
-          color: #ffff;
-          border-radius: 2px;
-        }
+      button {
+        padding: 10px 15px;
+        margin-top: 8px;
+        background: #eb5f08;
+        color: #ffff;
+        border-radius: 2px;
+        width: max-content;
       }
     }
 
